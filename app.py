@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 from PIL import Image
 import torch
 from torchvision import models, transforms
+import os
 
 app = Flask(__name__)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
