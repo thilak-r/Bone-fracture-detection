@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bone Fracture Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .upload-container {
+            background: #ffffff;
+            border: 2px dashed #bbb;
+            border-radius: 10px;
+            padding: 30px;
+            width: 50%;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .upload-container:hover {
+            transform: scale(1.05);
+            background-color: #f0f4f8;
+        }
+
+        .drag-area {
+            font-size: 1.2em;
+            color: #666;
+            margin: 20px 0;
+        }
+
+        .drag-area:hover {
+            color: #444;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bone Fracture Detection</h1>
+    <div class="upload-container" id="drop-area">
+        <p class="drag-area">Drag & Drop your file here or</p>
+        <button class="btn" onclick="document.getElementById('file-input').click()">Choose File</button>
+        <input type="file" id="file-input" class="file-input" accept="image/*" onchange="uploadFile(event)">
+    </div>
+    <p id="output" class="result"></p>
+
+    <script>
+        const dropArea = document.getElementById('drop-area');
+        const output = document.getElementById('output');
+        const fileInput = document.getElementById('file-input');
+
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.style.backgroundColor = '#e0f7fa';
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.style.backgroundColor = '#ffffff';
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.style.backgroundColor = '#ffffff';
+            const file = event.dataTransfer.files[0];
+            uploadFile({ target: { files: [file] } });
+        });
+
+        function uploadFile(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: formData,
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.error) {
+                    output.textContent = `Error: ${data.error}`;
+                } else {
+                    output.textContent = `Prediction: ${data.prediction}, Confidence: ${data.confidence}%`;
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                output.textContent = 'An error occurred during prediction.';
+            });
+        }
+    </script>
+</body>
+</html>
