@@ -17,13 +17,13 @@ This project is a deep learning-based system designed to detect bone fractures f
 ## **Technologies Used**
 
 | **Technology**       | **Description**                                                               |
-|-----------------------|-------------------------------------------------------------------------------|
+|-----------------------|------------------------------------------------------------------------------|
 | **Python**           | Core programming language for model training and application development      |
 | **PyTorch**          | Framework used for building and training the ResNet18 model                   |
 | **Flask**            | Lightweight web framework for backend development                             |
 | **HTML/CSS**         | Frontend for the application with animations and modern design                |
 | **Bootstrap**        | CSS framework for styling and responsive design                               |
-| **Matplotlib/Seaborn**| Libraries for visualizing metrics such as confusion matrix and ROC curve      |
+| **Matplotlib/Seaborn**| Libraries for visualizing metrics such as confusion matrix and ROC curve     |
 
 ---
 
@@ -66,10 +66,7 @@ Navigate to the following address in your web browser to access the application:
    ```bash
    http://127.0.0.1:5000
 
-   
----
-
----
+<br>
 
 ## ❤️ Thank You!
 Thank you for checking out our project! We hope this inspires you to explore the intersection of AI and healthcare. Feel free to reach out for questions, suggestions, or collaborations.
