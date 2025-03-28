@@ -4,7 +4,17 @@
 This project is a deep learning-based system designed to detect bone fractures from X-ray images. The model utilizes the **ResNet18** architecture to classify X-rays as either **fractured** or **not fractured**, assisting healthcare professionals in making quick and accurate diagnoses.
 
 ---
+--
+⭐ If you like this project, don't forget to give it a star on GitHub!  
 
+---
+<a href="https://github.com/thilak-r/liver-fabrosis-detection/blob/main/Original-ResNet-18-Architecture.png">
+  <img src="https://raw.githubusercontent.com/thilak-r/liver-fabrosis-detection/main/Original-ResNet-18-Architecture.png" 
+       alt="Original ResNet-18 Architecture" 
+       style="max-width: 100%; height: auto; display: block; margin: auto;">
+</a>
+
+---
 ## **Key Features**
 - **Deep Learning Model**: Built on **ResNet18**, a pre-trained Convolutional Neural Network.
 - **Binary Classification**: Detects whether an X-ray image shows a **fractured** or **not fractured** bone.
