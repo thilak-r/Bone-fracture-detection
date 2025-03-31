@@ -3,7 +3,7 @@
 ## **Project Overview**
 This project is a deep learning-based system designed to detect bone fractures from X-ray images. The model utilizes the **ResNet18** architecture to classify X-rays as either **fractured** or **not fractured**, assisting healthcare professionals in making quick and accurate diagnoses.
 
----
+
 --
 ⭐ If you like this project, don't forget to give it a star on GitHub!  
 
@@ -47,11 +47,8 @@ This project is a deep learning-based system designed to detect bone fractures f
 ├── bone_fracture_resnet18.pth # Trained PyTorch model
 ├── requirements.txt       # List of dependencies for the project
 ├── README.md              # Project documentation
-├── static/                # Static files for CSS and JavaScript (if any)
-└── dataset/               # Dataset used for training and testing
-
+├── static/                # Static files for CSS and JavaScript (if any)         
 ```
-
 
 ---
 
@@ -80,7 +77,6 @@ Navigate to the following address in your web browser to access the application:
 
 ## ❤️ Thank You!
 Thank you for checking out our project! We hope this inspires you to explore the intersection of AI and healthcare. Feel free to reach out for questions, suggestions, or collaborations.
-
 ---
 
 <br><br>
